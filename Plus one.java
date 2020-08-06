@@ -18,9 +18,24 @@ Explanation: The array represents the integer 4321.
 
 Solution:
 class Solution {
-    public int[] plusOne(int[] digits) {
-        digits[digits.length-1]+=1;
-        return digits;
-        
-    }
+public int[] plusOne(int[] digits) {
+  
+ ArrayList<Integer> list=new ArrayList<>();   
+ int carry=1;
+ for(int i=digits.length-1;i>=0;i--)
+ {
+    int v=digits[i]+carry;   
+    list.add(v%10); 
+    carry=v/10; 
+ }
+ 
+ if(carry!=0)
+ list.add(carry);
+    
+ int []ans=new int[list.size()];
+    int c=0;
+ for(int i=list.size()-1;i>=0;i--)
+ {ans[c]=list.get(i);
+  c++;}  
+ return ans;   
 }
